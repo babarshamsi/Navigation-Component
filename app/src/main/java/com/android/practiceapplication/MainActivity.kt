@@ -6,10 +6,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.helpers.RetrofitClient
 import com.android.models.Results
 import jp.shts.android.storiesprogressview.StoriesProgressView
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,7 +33,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupActionBarWithNavController(findNavController(R.id.fragmentContainerView))
+        val navController = findNavController(R.id.fragmentContainerView)
+        bottomNavigationView.setupWithNavController(navController)
+
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.dashBoardFragment, R.id
+            .profileFragment, R.id.settingsFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+
+//        setupActionBarWithNavController(findNavController(R.id.fragmentContainerView))
 
 //        storiesProgressView?.setStoriesCount(4); // <- set stories
 //        storiesProgressView?.setStoryDuration(1200L); // <- set a story duration
@@ -43,10 +54,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navigationUp = findNavController(R.id.fragmentContainerView)
-        return navigationUp.navigateUp() || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navigationUp = findNavController(R.id.fragmentContainerView)
+//        return navigationUp.navigateUp() || super.onSupportNavigateUp()
+//    }
 
     fun ShowStories(view: View?) {
         // on below line we are opening a new activity using intent.

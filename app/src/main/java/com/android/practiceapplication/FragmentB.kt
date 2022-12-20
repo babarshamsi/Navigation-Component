@@ -21,12 +21,12 @@ class FragmentB : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sendBtn.setOnClickListener {
-            val message = inputTextEditText.text.toString()
-            if (message.isNotEmpty()) {
-                val action = FragmentBDirections.actionFragmentBToFragmentC(message)
-                Navigation.findNavController(view).navigate(action)
-            }
-        }
+//        sendBtn.setOnClickListener {
+//            val message = inputTextEditText.text.toString()
+//            if (message.isNotEmpty()) {
+//                val action = FragmentBDirections.actionFragmentBToFragmentC(message)
+//                Navigation.findNavController(view).navigate(action)
+//            }
+//        }
     }
 }

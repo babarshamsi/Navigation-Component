@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_c.view.*
 
 class FragmentC: Fragment() {
 
-    private val args: FragmentCArgs by navArgs()
+//    private val args: FragmentCArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +22,7 @@ class FragmentC: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val textMessage = args.message
-        view.fragmentCTitle.text = textMessage
+//        val textMessage = args.message
+//        view.fragmentCTitle.text = textMessage
     }
 }
